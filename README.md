@@ -1,43 +1,52 @@
 # Raytracer
 
-A high-performance, plugin-based Raytracer built in C++20. This engine is designed for total extensibility, allowing users to dynamically load shapes, lights, and materials.
+> **Epitech Tek2 — Object-Oriented Programming & Computer Graphics (C++20)**  
+> A high-performance, extensible, plugin-based Raytracing engine built in **C++20** with dynamic loading of primitives, lights, materials, skies, and renderers.
+
+---
+
+## Key Features
+
+- **Plugin Architecture**: Dynamically loadable shared libraries (`.so`) for shapes, lights, materials, skies, and renderers.
+- **Primitives**: Sphere, Plane, Cylinder, Infinite Cylinder, Cone, Limited Cone, Torus, Box, Triangle, 3D Mesh (`.obj`), Tanglecube, and Fractals.
+- **Materials**: Flat, Phong shading, Metallic reflections, Transparency / Refraction, and Emissive Light materials.
+- **Lighting**: Ambient, Directional, Point, and Spot lights with shadows.
+- **Skyboxes**: Atmospheric sky, Galaxy sky, and Empty sky.
+- **Renderers & Live Preview**: Default & Fast renderers, interactive **SFML live display**, automatic **file watcher** for hot-reloading scenes, and network rendering support.
+- **Scene Configuration**: Declarative `.scene` files parsed with `libconfig++`.
 
 ---
 
 ## Getting Started
 
-### 1. Prerequisites
+### Prerequisites
+- **C++20 Compiler**: GCC 10+ or Clang 10+
+- **CMake**: Version 3.15+
+- **Libraries**: `libconfig++`, `SFML` (for live display)
 
-Ensure you have the following tools installed:
-* **C++ Compiler**: Supporting C++20 (GCC 10+, Clang 10+, or MSVC 19.28+).
-* **CMake**: Version 3.15 or higher.
-* **Libraries**:
-    * `libconfig++`: For parsing scene configuration files.
-
-### 2. Quick Build
-
-To create the build directory, configure the project, and compile everything (including plugins) in one go, run:
-
+### Build
 ```bash
 mkdir -p build && cmake -B build -S . && cmake --build build
 ```
 
-### 3. Running a Scene
-
-To render a scene, you simply need to pass a configuration file (`.scene`) as an argument to the executable. The engine will parse the file, load the necessary plugins, and start the rendering process.
-
+### Run a Scene
 ```bash
 ./raytracer scenes/showcase/primitives/sphere.scene
 ```
 
-## 📖 Documentation
+---
 
-To help you extend the engine, we have modularized the documentation. Follow these guides to add new features via our plugin system:
+## Documentation
 
-### 🧩 Plugin Development Guides
-* [**Adding a Light**](./docs/lights.md) — Learn how to create new lights.
-* [**Adding a Shape**](./docs/shapes.md) — Learn how to add your own shapes
-* [**Adding a Material**](./docs/materials.md) — Learn how to create new materials
+- **Plugin Development Guides**:
+  - [Adding a Light](./docs/lights.md)
+  - [Adding a Shape](./docs/shapes.md)
+  - [Adding a Material](./docs/materials.md)
+- **Scene Configuration**:
+  - [Scene Setup](./docs/scenes.md)
 
-### 🎬 Scene Configuration
-* [**Scene Setup**](./docs/scenes.md) — Detailed guide on how to configure your `.scene` files.
+---
+
+## Credits
+
+Built as an Epitech Tek2 OOP project by **Maëva Arroniz** ([@Maeva2630](https://github.com/Maeva2630)), **Alban Lembrez** ([@Saitamadupauvre](https://github.com/Saitamadupauvre)), **Teddy Bertrand** ([@TeddyBertrand](https://github.com/TeddyBertrand)), and **Amayyas**.
