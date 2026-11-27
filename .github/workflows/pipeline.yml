@@ -1,4 +1,4 @@
-name: RayTracer CI & Mirror
+name: RayTracer CI
 
 on:
   push:
@@ -37,24 +37,3 @@ jobs:
 
       - name: Run Tests
         run: cd build && ctest --output-on-failure
-
-  mirror_to_epitech:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Setup SSH Agent
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_SECRET }}
-
-      - name: Push to Epitech
-        run: |
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          git remote add epitech git@github.com:EpitechPGE2-2025/G-OOP-400-MPL-4-1-raytracer-2.git
-          git push epitech --mirror
